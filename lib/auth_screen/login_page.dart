@@ -291,55 +291,57 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
-  void login(String email, password) async {
-    try {
-      final response = await post(
-          Uri.parse(
-            'http://restapi.adequateshop.com/api/authaccount/login',
-          ),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: jsonEncode({
-            'email': email,
-            'password': password,
-          }));
-
-      var data = jsonDecode(response.body);
-  //    log("Data ${data}");
-      if (response.statusCode == 200) {
-        final String? token = data['data']['Token'];
-      //  final int? id = data['data']['Id'];
-        log("Token: $token");
-        //       log("Id: $id");
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('Token', token!);
-      //  await prefs.setInt('Id', id!);
-
-        Get.snackbar(
-            "Login Sucessful",
-            snackPosition: SnackPosition.BOTTOM,
-            data.toString());
-        Get.to(const DiscoveryPage());
-      } else if (response.statusCode == 400) {
-        Get.snackbar(
-            "Email or password is not correct",
-            snackPosition: SnackPosition.BOTTOM,
-            data.toString());
-      } else {
-        Get.snackbar(
-          "Login Faild",
-          "Something went wrong",
-          snackPosition: SnackPosition.BOTTOM,
-        );
-      }
-    } catch (e) {
-      Get.snackbar(
-        "Exception",
-        e.toString(),
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
-  }
 }
+
+
+//   void login(String email, password) async {
+//     try {
+//       final response = await post(
+//           Uri.parse(
+//             'http://restapi.adequateshop.com/api/authaccount/login',
+//           ),
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//           body: jsonEncode({
+//             'email': email,
+//             'password': password,
+//           }));
+
+//       var data = jsonDecode(response.body);
+//   //    log("Data ${data}");
+//       if (response.statusCode == 200) {
+//         final String? token = data['data']['Token'];
+//       //  final int? id = data['data']['Id'];
+//         log("Token: $token");
+//         //       log("Id: $id");
+//         final prefs = await SharedPreferences.getInstance();
+//         await prefs.setString('Token', token!);
+//       //  await prefs.setInt('Id', id!);
+
+//         Get.snackbar(
+//             "Login Sucessful",
+//             snackPosition: SnackPosition.BOTTOM,
+//             data.toString());
+//         Get.to(const DiscoveryPage());
+//       } else if (response.statusCode == 400) {
+//         Get.snackbar(
+//             "Email or password is not correct",
+//             snackPosition: SnackPosition.BOTTOM,
+//             data.toString());
+//       } else {
+//         Get.snackbar(
+//           "Login Faild",
+//           "Something went wrong",
+//           snackPosition: SnackPosition.BOTTOM,
+//         );
+//       }
+//     } catch (e) {
+//       Get.snackbar(
+//         "Exception",
+//         e.toString(),
+//         snackPosition: SnackPosition.BOTTOM,
+//       );
+//     }
+//   }
+// }

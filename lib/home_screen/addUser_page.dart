@@ -15,9 +15,8 @@ class AddUserPage extends StatefulWidget {
   State<AddUserPage> createState() => _AddUserPageState();
 }
 
-
 class _AddUserPageState extends State<AddUserPage> {
-    TextEditingController usernameController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController locationController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
@@ -38,7 +37,7 @@ class _AddUserPageState extends State<AddUserPage> {
     });
   }
 
-// New User Added
+//New User Added
 
   void addUser(String name, email, password) async {
     try {
@@ -274,6 +273,5 @@ class _AddUserPageState extends State<AddUserPage> {
         ),
       ),
     ));
-
   }
 }
