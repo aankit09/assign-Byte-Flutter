@@ -169,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.only(
                               left: 20.0, right: 20, top: 5, bottom: 10),
                           child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.visiblePassword,
                             controller: passwordController,
                             obscureText: true,
                             validator: (PassCurrentValue) {

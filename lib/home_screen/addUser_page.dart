@@ -208,7 +208,7 @@ class _AddUserPageState extends State<AddUserPage> {
                           padding: const EdgeInsets.only(
                               left: 20.0, right: 20, top: 10, bottom: 10),
                           child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.text,
                             controller: locationController,
                             obscureText: true,
                             decoration: const InputDecoration(
